@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Kevelbreh</title>
+        <!-- Bootstrap core CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+
+        <![endif]-->
+        <style>
+            html {
+              position: relative;
+              min-height: 100%;
+            }
+            body {
+              margin-bottom: 60px;
+            }
+            .footer {
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              background-color: #f5f5f5;
+            }
+            .footer input {
+                width: 100%;
+            }
+
+            body > .container {
+              padding: 60px 15px 0;
+            }
+            .container .text-muted {
+              margin: 20px 0;
+            }
+
+            .footer > .container {
+              padding-right: 15px;
+              padding-left: 15px;
+            }
+
+            .row div {
+                min-height: 100% !important;
+                background: #fff000
+            }
+
+            code {
+              font-size: 80%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10">
+                    <p>This is a message</p>
+                    <p>This is a message</p>
+                    <p>This is a message</p>
+                    <p>This is a message</p>
+                </div>
+                <div class="col-sm-2" style="background:#ccc">
+                    <p>Kevin</p>
+                    <p>Kevin</p>
+                    <p>Kevin</p>
+                    <p>Kevin</p>
+                    <p>Kevin</p>
+                </div>
+            </div>
+        </div><!-- /.container -->
+
+        <footer class="footer" style="background:123123">
+            <div>
+                <input type="text" name="send">
+            </div>
+        </footer>
+
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script>
+            var socket = new WebSocket("ws://chat.kevelbreh.co.za:8889")
+            socket.onopen = function(e) {
+                socket.send("NICK kevin\r\n")
+                socket.send("USER username null null null\r\n")
+            }
+
+            socket.onmessage = function(e) {
+                console.log(e.data)
+            }
+
+            var irc = {}
+            irc.buffer = ""
+            irc.receive = function(data) {
+                var lines = (irc.buffer + data).split('\r\n')
+                buffer = lines.pop()
+                for line in lines:
+                    if lines.length <= 2 {
+                        continue
+                    }
+                if line[-1] == '\r' {
+
+                }
+            }
+
+
+        </script>
+    </body>
+</html>

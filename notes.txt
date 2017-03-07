@@ -1,0 +1,8 @@
+Milestones (per game):
+
+1 pickup and 20 peek users per day for 1 week:
+    *
+5 pickups and 50 peek users per day for 1 week:
+    * web UI (no more mibbit)
+10 pickups and 100 peek users per day for 1 week:
+    * game / server intergration
